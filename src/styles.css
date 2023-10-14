@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "ngx-toastr/toastr";
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.btn-primary {
+  border-radius: 8px;
+  background: var(--link-color, #3a3395);
+}
+
+.btn-secondary {
+  border-radius: 6px;
+  border: 1px solid var(--gray-300, #d1d5db);
+  background: var(--white, #fff);
+  color: black;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}

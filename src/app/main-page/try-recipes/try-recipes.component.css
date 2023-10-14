@@ -1,0 +1,14 @@
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.mx-15 {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.card {
+  border-radius: 30px;
+  min-height: 23rem;
+  border: 0px;
+}

@@ -1,0 +1,15 @@
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.mx-15 {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.card {
+  border-radius: 30px;
+  min-height: 27rem;
+  border: 0px;
+  background: linear-gradient(180deg, rgba(231, 249, 253, 0) 0%, #e7f9fd 100%);
+}
