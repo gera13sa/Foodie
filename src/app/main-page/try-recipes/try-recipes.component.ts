@@ -12,6 +12,8 @@ export class TryRecipesComponent {
 
   randomRecipes!: Posts[];
 
+  showNotification() {}
+
   ngOnInit() {
     this.dataService.getAllPosts().subscribe({
       next: (value) => {

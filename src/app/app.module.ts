@@ -13,6 +13,10 @@ import { BestRecepiesComponent } from './main-page/best-recepies/best-recepies.c
 import { TryRecipesComponent } from './main-page/try-recipes/try-recipes.component';
 import { CustomNotificationComponent } from './main-page/custom-notification/custom-notification.component';
 import { ToastrModule } from 'ngx-toastr';
+import { WhyUsComponent } from './main-page/why-us/why-us.component';
+import { SubscribeComponent } from './main-page/subscribe/subscribe.component';
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeRu);
 
@@ -25,10 +29,14 @@ registerLocaleData(localeRu);
     BestRecepiesComponent,
     TryRecipesComponent,
     CustomNotificationComponent,
+    WhyUsComponent,
+    SubscribeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     ToastrModule.forRoot({
       enableHtml: true,
