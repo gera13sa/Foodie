@@ -37,30 +37,32 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span>Иванов Иван</span><br />
-          <span class="text-secondary">Пользователь</span>
+          <span>{{ this.currentUser.fullname }}</span
+          ><br />
+          <span class="text-secondary">{{
+            this.rolesMap.get(this.currentRole)
+          }}</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-md-end">
           <li>
             <span class="dropdown-item-text fw-lighter"
-              >Вы вошли как username</span
+              >Вы вошли как {{ this.currentUser.username }}</span
             >
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
-            <a class="dropdown-item fw-lighter" href="">Настройки аккаунта</a>
+            <a class="dropdown-item fw-lighter">Настройки аккаунта</a>
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
-            <a class="dropdown-item text-danger fw-lighter" href="">Выход</a>
+            <a class="dropdown-item text-danger fw-lighter" (click)="logOut()"
+              >Выход</a
+            >
           </li>
         </ul>
       </div>
       <ng-template #userGuest>
-        <button
-          class="btn btn-primary me-5 px-4 fw-light"
-          routerLink="register"
-        >
+        <button class="btn btn-primary me-5 px-4 fw-light" routerLink="auth">
           Войти
         </button>
       </ng-template>

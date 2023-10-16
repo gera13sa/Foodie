@@ -1,10 +1,10 @@
-import { User } from './users-interface';
+import { UserInfo } from './users-interface';
 
 export interface Posts {
   id: number;
   title: string;
   tags: string;
-  user: User;
+  user: UserInfo;
   image: string;
   body: string;
   timeCooking: number;

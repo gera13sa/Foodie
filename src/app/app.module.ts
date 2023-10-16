@@ -17,6 +17,14 @@ import { WhyUsComponent } from './main-page/why-us/why-us.component';
 import { SubscribeComponent } from './main-page/subscribe/subscribe.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { NgxsModule } from '@ngxs/store';
+import { AuthState } from 'src/store/auth.state';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import {
+  NgxsReduxDevtoolsPlugin,
+  NgxsReduxDevtoolsPluginModule,
+} from '@ngxs/devtools-plugin';
 
 registerLocaleData(localeRu);
 
@@ -32,12 +40,16 @@ registerLocaleData(localeRu);
     WhyUsComponent,
     SubscribeComponent,
     FooterComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxsModule.forRoot([AuthState]),
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     ToastrModule.forRoot({
       enableHtml: true,
     }),
