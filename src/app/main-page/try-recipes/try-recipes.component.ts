@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/data.service';
@@ -14,6 +15,7 @@ import { FavoriteUpdate } from 'src/store/model/favorites.model';
 export class TryRecipesComponent {
   constructor(
     private dataService: DataService,
+    private router: Router,
     private toastr: ToastrService,
     private store: Store
   ) {}
@@ -28,6 +30,11 @@ export class TryRecipesComponent {
         'Добавлено в избранное',
         'Сохранили этот рецепт для вас'
       );
+  }
+
+  navigateToRecipe(id: number) {
+    const absolutePath = `/recipe/${id}`;
+    this.router.navigate([absolutePath]);
   }
 
   ngOnInit() {

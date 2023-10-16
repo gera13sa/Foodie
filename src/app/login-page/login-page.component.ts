@@ -25,8 +25,6 @@ export class LoginPageComponent {
   };
 
   authorizeUser() {
-    console.log(this.userAuthData);
-
     this.dataService
       .auth(this.userAuthData.username, this.userAuthData.password)
       .subscribe({
@@ -45,8 +43,6 @@ export class LoginPageComponent {
           this.dataService.role = this.store.selectSnapshot(
             AuthState.getAuthRole
           );
-
-          this.wrongCred = false;
           this.router.navigateByUrl('');
         },
 

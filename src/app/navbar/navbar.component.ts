@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { Store } from '@ngxs/store';
 import { AuthState } from 'src/store/auth.state';
 import { Auth } from 'src/store/model/auth.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,11 @@ import { Auth } from 'src/store/model/auth.model';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private dataService: DataService, private store: Store) {}
+  constructor(
+    private dataService: DataService,
+    private store: Store,
+    private router: Router
+  ) {}
 
   currentRole!: string;
   currentUser: Auth = {
@@ -28,6 +33,7 @@ export class NavbarComponent {
 
   logOut() {
     this.store.reset(AuthState);
+    this.router.navigate(['auth']);
   }
 
   ngOnInit() {

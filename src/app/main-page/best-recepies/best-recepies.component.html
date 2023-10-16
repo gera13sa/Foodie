@@ -22,7 +22,9 @@
           </i>
         </button>
         <img [src]="recipe.image" class="card-img-top rounded-4 mb-3" />
-        <h4 class="card-title">{{ recipe.title }}</h4>
+        <h4 class="card-title" [routerLink]="'recipe/' + recipe.id">
+          {{ recipe.title }}
+        </h4>
       </div>
       <div class="card-footer row-col-3 bg-transparent border-0 px-3 pb-4">
         <span class="fw-light ms-2 me-4"

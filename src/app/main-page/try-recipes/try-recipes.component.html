@@ -1,11 +1,3 @@
-<div class="row mt-10 mb-4">
-  <h1 class="col p-0">Попробуйте эти вкусные рецепты</h1>
-  <p class="text-secondary pt-4 col">
-    Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqut enim ad minim
-  </p>
-</div>
-
 <div class="row">
   <div class="col-3" *ngFor="let recipe of randomRecipes; let i = index">
     <div class="card my-4">
@@ -23,11 +15,14 @@
           </i>
         </button>
         <img [src]="recipe.image" class="card-img-top rounded-4 mb-3" />
-        <h4 class="card-title">
+        <h4 class="card-title" [routerLink]="'recipe/' + recipe.id">
           {{ recipe.title }}
         </h4>
       </div>
-      <div class="card-footer row-col-3 bg-transparent border-0 px-3 pb-4">
+      <div
+        class="card-footer row-col-3 bg-transparent border-0 px-3 pb-4"
+        [routerLink]="'recipe/' + recipe.id"
+      >
         <span class="fw-light ms-2 me-4"
           ><img src="../../../assets/Timer.svg" />
           {{ recipe.timeCooking }} минут

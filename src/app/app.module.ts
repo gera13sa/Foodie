@@ -11,7 +11,6 @@ import localeRu from '@angular/common/locales/ru';
 import { SliderComponent } from './main-page/slider/slider.component';
 import { BestRecepiesComponent } from './main-page/best-recepies/best-recepies.component';
 import { TryRecipesComponent } from './main-page/try-recipes/try-recipes.component';
-import { CustomNotificationComponent } from './main-page/custom-notification/custom-notification.component';
 import { ToastrModule } from 'ngx-toastr';
 import { WhyUsComponent } from './main-page/why-us/why-us.component';
 import { SubscribeComponent } from './main-page/subscribe/subscribe.component';
@@ -27,6 +26,8 @@ import {
   NgxsReduxDevtoolsPluginModule,
 } from '@ngxs/devtools-plugin';
 import { FavoritesState } from 'src/store/favorites.state';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
 
 registerLocaleData(localeRu);
 
@@ -38,11 +39,12 @@ registerLocaleData(localeRu);
     SliderComponent,
     BestRecepiesComponent,
     TryRecipesComponent,
-    CustomNotificationComponent,
     WhyUsComponent,
     SubscribeComponent,
     FooterComponent,
     LoginPageComponent,
+    RecipeDetailsComponent,
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,10 @@ registerLocaleData(localeRu);
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ToastrModule.forRoot({
       enableHtml: true,
+      timeOut: 5000,
+      easeTime: 200,
+      easing: 'ease-in',
+      closeButton: true,
     }),
   ],
   providers: [],

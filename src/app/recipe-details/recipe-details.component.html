@@ -1,0 +1,245 @@
+<div class="container container-sm mt-10">
+  <h1 class="fw-bolder mb-4">{{ recipeInfo.title }}</h1>
+  <div class="row mt-5 my-auto">
+    <img [src]="recipeInfo.user.image" class="rounded-circle col-1 p-4 m-0" />
+
+    <div class="col-2 ms-0 me-0 my-auto border-1 border-end">
+      <span class="fw-bold">{{ recipeInfo.user.name }}</span
+      ><br />
+      <span class="text-secondary">{{
+        recipeInfo.user.date | date : "d MMMM yyyy" : "+2" : "ru"
+      }}</span>
+    </div>
+    <div class="col-3 ms-3 my-auto">
+      <div class="row">
+        <div class="col col-1 p-0 my-auto">
+          <img src="../../../assets/Timer.svg" class="my-auto" />
+        </div>
+        <div class="col my-auto border-1 border-end pe-0">
+          <p class="mb-0 my-auto fw-light">ВРЕМЯ ПРИГОТОВЛЕНИЯ</p>
+          <p class="text-secondary fw-light mt-0 my-auto">
+            {{ recipeInfo.timeCooking }} минут
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 ms-1 my-auto">
+      <img src="../../assets/ForkKnife.svg" />
+      <span class="ms-3">{{ recipeInfo.tags }}</span>
+    </div>
+
+    <div class="col-1 p-0 m-0 text-center">
+      <a
+        ><i
+          class="bi bi-printer rounded-circle p-4"
+          (click)="printThisPage()"
+        ></i
+      ></a>
+    </div>
+
+    <div class="col-1 p-0 m-0 text-center">
+      <i
+        class="bi bi-box-arrow-up rounded-circle p-4"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      ></i>
+    </div>
+  </div>
+
+  <div class="row">
+    <img [src]="recipeInfo.image" class="scale col-7 rounded-5 my-5 mx-1" />
+
+    <div class="col-4 my-5">
+      <div class="card bg-primary rounded-5 border-0 p-2 h-100">
+        <div class="card-body">
+          <h3 class="card-title mb-3">Пищевая ценность</h3>
+          <ng-container
+            *ngTemplateOutlet="
+              FoodValue;
+              context: {
+                _name: 'Калории',
+                _value: recipeInfo.foodValue.calories,
+                _mesure: 'ккал'
+              }
+            "
+          ></ng-container>
+          <hr />
+          <ng-container
+            *ngTemplateOutlet="
+              FoodValue;
+              context: {
+                _name: 'Жиры',
+                _value: recipeInfo.foodValue.fats,
+                _mesure: 'г'
+              }
+            "
+          ></ng-container>
+          <hr />
+          <ng-container
+            *ngTemplateOutlet="
+              FoodValue;
+              context: {
+                _name: 'Углеводы',
+                _value: recipeInfo.foodValue.carbohydrates,
+                _mesure: 'г'
+              }
+            "
+          ></ng-container>
+          <hr />
+          <ng-container
+            *ngTemplateOutlet="
+              FoodValue;
+              context: {
+                _name: 'Белки',
+                _value: recipeInfo.foodValue.belki,
+                _mesure: 'г'
+              }
+            "
+          ></ng-container>
+        </div>
+        <div class="row my-auto">
+          <span class="my-auto text-center text-secondary mb-2"
+            >Значения приблизительные</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <p class="text-secondary">{{ recipeInfo.body }}</p>
+  </div>
+  <div class="row">
+    <h3 class="my-5">Ингридиенты</h3>
+    <div class="col-7 pe-5">
+      <h4 class="mb-4">Что вам пригодится</h4>
+      <ng-container
+        *ngFor="let ingredient of recipeInfo.additionalInformation.ingredients"
+      >
+        <input
+          class="form-check-input p-2 mt-3 rounded-circle"
+          type="checkbox"
+          id="check"
+        />
+        <label class="form-check-label my-auto p-3" for="check">
+          {{ ingredient }}
+        </label>
+        <hr />
+      </ng-container>
+    </div>
+    <div class="col-3 ps-3">
+      <h3 class="mb-5">Прочие рецепты</h3>
+      <ng-container *ngFor="let recipe of randomRecipes">
+        <div class="row mb-3">
+          <img [src]="recipe.image" class="col-6 fit p-0 m-0 rounded-5" />
+          <div class="col-6">
+            <div class="row">
+              <h6 [routerLink]="'/recipe/' + recipe.id">{{ recipe.title }}</h6>
+            </div>
+            <div class="row">
+              <p class="text-secondary">От {{ recipe.user.name }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3 class="my-5">Шаги приготовления</h3>
+    <div class="col-7 pe-5">
+      <ng-container
+        *ngFor="
+          let step of recipeInfo.additionalInformation.details;
+          let i = index
+        "
+      >
+        <div class="row">
+          <div class="col-1 pe-0 me-0">
+            <input
+              class="form-check-input p-2 rounded-circle m-0 mt-1"
+              type="checkbox"
+              value=""
+              id="check"
+            />
+          </div>
+          <div class="col-11 ms-0 ps-0">
+            <label
+              class="form-check-label ms-0 mt-0 mb-3 pt-0 fw-bold"
+              for="check"
+            >
+              <h5>{{ i + 1 }}. {{ step.title }}</h5>
+            </label>
+            <p class="text-secondary mb-5">{{ step.body }}</p>
+            <hr />
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <h2 class="text-center my-5">Возможно вам понравятся эти рецепты</h2>
+  <app-try-recipes></app-try-recipes>
+
+  <h2 class="my-5">Комментарии</h2>
+  <ng-container *ngFor="let comment of recipeInfo.comments">
+    <div class="row mb-2">
+      <div class="col-2 ms-0 me-0 my-auto">
+        <span class="fw-bold">{{ comment.user.username }}</span
+        ><br />
+        <span class="text-secondary">{{
+          comment.dateCreated | date : "dd.MM.yyyy hh:mm" : "+2" : "ru"
+        }}</span>
+      </div>
+      <div class="row">
+        <p>{{ comment.body }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template
+  #FoodValue
+  let-name="_name"
+  let-value="_value"
+  let-mesure="_mesure"
+>
+  <div class="row">
+    <div class="col float-start text-secondary">{{ name }}</div>
+    <div class="col float-end text-end">{{ value }} {{ mesure }}</div>
+  </div>
+</ng-template>
+
+<!-- Модальное окно -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Поделиться рецептом
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Закрыть"
+        ></button>
+      </div>
+      <div class="modal-body">Вы хотите поделиться данным рецептом?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Отменить
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Поделиться
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

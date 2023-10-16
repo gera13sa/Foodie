@@ -1,0 +1,42 @@
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.bg-primary {
+  background-color: #e7fafe !important;
+}
+
+.bg-grey {
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.05);
+  width: 10rem;
+}
+
+.scale {
+  object-fit: cover;
+}
+
+.fit {
+  width: 10rem;
+  height: 8rem;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.form-check-input:checked {
+  background-color: green !important;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.bi-printer,
+.bi-box-arrow-up {
+  background-color: #e7fafe;
+  cursor: pointer;
+}
+
+.form-check-input {
+  cursor: pointer;
+}

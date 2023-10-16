@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Posts } from './interfaces/posts-interface';
 import { Auth } from 'src/store/model/auth.model';
+import { Recipe } from './interfaces/recipe-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,10 @@ export class DataService {
     return this.httpClient.get<Posts[]>(`${this.apiUrl}/posts`);
   }
 
+  getRecipe(id: number): Observable<Recipe> {
+    return this.httpClient.get<Recipe>(`${this.apiUrl}/posts/${id}`);
+  }
+
   auth(userLogin: string, userPassword: string): Observable<Auth> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,6 +34,21 @@ export class DataService {
     };
 
     return this.httpClient.post<Auth>(`${this.apiUrl}/users/login`, body, {
+      headers: headers,
+    });
+  }
+
+  register(userEmail: string, userPassword: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const body = {
+      email: userEmail,
+      password: userPassword,
+    };
+
+    return this.httpClient.post<Auth>(`${this.apiUrl}/users/register`, body, {
       headers: headers,
     });
   }
