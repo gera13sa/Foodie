@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from '../interfaces/recipe-interface';
-import { Posts } from '../interfaces/posts-interface';
+import { Recipe } from '../../interfaces/recipe-interface';
+import { Posts } from '../../interfaces/posts-interface';
 
 @Component({
   selector: 'app-recipe-details',

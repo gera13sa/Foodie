@@ -1,0 +1,29 @@
+.fill {
+  object-fit: cover;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.errCode {
+  color: #3a3395;
+}
+
+a:is([routerLink]) {
+  color: #3a3395;
+  text-decoration: underline;
+  cursor: pointer; /* Can set to 'pointer' as well */
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+a:not([href]) {
+  color: #3a3395;
+  text-decoration: underline;
+  cursor: pointer; /* Can set to 'pointer' as well */
+}

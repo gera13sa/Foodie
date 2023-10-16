@@ -26,8 +26,11 @@ import {
   NgxsReduxDevtoolsPluginModule,
 } from '@ngxs/devtools-plugin';
 import { FavoritesState } from 'src/store/favorites.state';
-import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RecipeDetailsComponent } from './recipes-page/recipe-details/recipe-details.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { AccessForbidenPageComponent } from './error-pages/access-forbiden-page/access-forbiden-page.component';
+import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
+import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 
 registerLocaleData(localeRu);
 
@@ -45,6 +48,9 @@ registerLocaleData(localeRu);
     LoginPageComponent,
     RecipeDetailsComponent,
     RegistrationPageComponent,
+    AccessForbidenPageComponent,
+    PageNotFoundComponent,
+    RecipesPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,8 @@ registerLocaleData(localeRu);
       easeTime: 200,
       easing: 'ease-in',
       closeButton: true,
+      countDuplicates: true,
+      preventDuplicates: true,
     }),
   ],
   providers: [],

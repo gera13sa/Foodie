@@ -4,7 +4,11 @@
     <div class="card-body p-5">
       <form>
         <div class="form-group">
-          <div *ngIf="this.wrongCred" class="alert alert-danger pb-0">
+          <div
+            *ngIf="this.wrongCred"
+            class="alert alert-danger pb-0"
+            @fadeInDown
+          >
             <p class="alert-heading">Неверный логин или пароль</p>
           </div>
 
@@ -14,6 +18,7 @@
               (userPassword.hasError('minlength') && userPassword.touched)
             "
             class="alert alert-danger pb-0"
+            @fadeInDown
           >
             <p class="alert-heading">
               Длины логина и пароля должны быть не менее 2-х символов
@@ -26,6 +31,7 @@
               (userPassword.hasError('pattern') && userPassword.touched)
             "
             class="alert alert-danger pb-0"
+            @fadeInDown
           >
             <p class="alert-heading">
               Логин и пароль не могут содержать пробелы и кириллицу
@@ -93,6 +99,12 @@
           (click)="authorizeUser()"
           type="submit"
           class="btn btn-primary w-100 mt-2 mb-3"
+          [disabled]="
+            userLogin.invalid ||
+            userPassword.invalid ||
+            userLogin.untouched ||
+            userPassword.untouched
+          "
         >
           Войти
         </button>

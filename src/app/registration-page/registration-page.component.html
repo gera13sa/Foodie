@@ -4,12 +4,17 @@
     <div class="card-body p-5">
       <form>
         <div class="form-group">
-          <div *ngIf="this.wrongCred" class="alert alert-danger pb-0">
-            <p class="alert-heading">Не удалось создать аккаунт!</p>
+          <div
+            *ngIf="this.wrongCred"
+            class="alert alert-danger pb-0"
+            @fadeInDown
+          >
+            <p class="alert-heading">Не удалось создать аккаунт! В</p>
           </div>
           <div
             *ngIf="userPassword.hasError('minlength') && userPassword.touched"
             class="alert alert-danger pb-0"
+            @fadeInDown
           >
             <p class="alert-heading">
               Длины пароля должна быть не менее 2-х символов
@@ -19,6 +24,7 @@
           <div
             *ngIf="userPassword.hasError('pattern') && userPassword.touched"
             class="alert alert-danger pb-0"
+            @fadeInDown
           >
             <p class="alert-heading">
               Пароль не может содержать пробелы и кириллицу
@@ -28,6 +34,7 @@
           <div
             *ngIf="userEmail.hasError('pattern') && userEmail.touched"
             class="alert alert-danger pb-0"
+            @fadeInDown
           >
             <p class="alert-heading">Неверно введена почта</p>
           </div>
@@ -78,6 +85,12 @@
           (click)="registerUser()"
           type="submit"
           class="btn btn-primary w-100 mt-5 mb-3"
+          [disabled]="
+            userEmail.invalid ||
+            userPassword.invalid ||
+            userEmail.untouched ||
+            userPassword.untouched
+          "
         >
           Зарегистрироваться
         </button>

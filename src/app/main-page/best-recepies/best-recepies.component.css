@@ -12,8 +12,13 @@
   min-height: 27rem;
   border: 0px;
   background: linear-gradient(180deg, rgba(231, 249, 253, 0) 0%, #e7f9fd 100%);
+  transition: all 0.5s;
 }
 
 .card-title {
   cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }

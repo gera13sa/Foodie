@@ -10,6 +10,7 @@
         recipeInfo.user.date | date : "d MMMM yyyy" : "+2" : "ru"
       }}</span>
     </div>
+
     <div class="col-3 ms-3 my-auto">
       <div class="row">
         <div class="col col-1 p-0 my-auto">
@@ -48,7 +49,6 @@
 
   <div class="row">
     <img [src]="recipeInfo.image" class="scale col-7 rounded-5 my-5 mx-1" />
-
     <div class="col-4 my-5">
       <div class="card bg-primary rounded-5 border-0 p-2 h-100">
         <div class="card-body">
@@ -64,6 +64,7 @@
             "
           ></ng-container>
           <hr />
+
           <ng-container
             *ngTemplateOutlet="
               FoodValue;
@@ -75,6 +76,7 @@
             "
           ></ng-container>
           <hr />
+
           <ng-container
             *ngTemplateOutlet="
               FoodValue;
@@ -86,6 +88,7 @@
             "
           ></ng-container>
           <hr />
+
           <ng-container
             *ngTemplateOutlet="
               FoodValue;
@@ -109,10 +112,13 @@
   <div class="row">
     <p class="text-secondary">{{ recipeInfo.body }}</p>
   </div>
+
   <div class="row">
     <h3 class="my-5">Ингридиенты</h3>
+
     <div class="col-7 pe-5">
       <h4 class="mb-4">Что вам пригодится</h4>
+
       <ng-container
         *ngFor="let ingredient of recipeInfo.additionalInformation.ingredients"
       >
@@ -129,6 +135,7 @@
     </div>
     <div class="col-3 ps-3">
       <h3 class="mb-5">Прочие рецепты</h3>
+
       <ng-container *ngFor="let recipe of randomRecipes">
         <div class="row mb-3">
           <img [src]="recipe.image" class="col-6 fit p-0 m-0 rounded-5" />
@@ -147,6 +154,7 @@
 
   <div class="row">
     <h3 class="my-5">Шаги приготовления</h3>
+
     <div class="col-7 pe-5">
       <ng-container
         *ngFor="

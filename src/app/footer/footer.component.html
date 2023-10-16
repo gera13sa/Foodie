@@ -1,4 +1,12 @@
-<div class="footer">
+<div *ngIf="bannerState && !isErrorPage" class="banner fixed-bottom p-3">
+  <img src="../../assets/Speakerphone.svg" class="ms-5" />
+  <span>Хорошие новости! Мы открыли наш интернет-магазин</span>
+  <a (click)="removeBanner()" class="float-end me-5"
+    ><img src="../../assets/X.svg"
+  /></a>
+</div>
+
+<div class="footer" *ngIf="!isErrorPage">
   <hr />
   <div class="d-flex justify-content-between p-4 mb-2">
     <div class="col-10">

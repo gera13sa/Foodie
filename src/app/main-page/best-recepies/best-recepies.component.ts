@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +17,12 @@ import { FavoriteUpdate } from 'src/store/model/favorites.model';
   selector: 'app-best-recepies',
   templateUrl: './best-recepies.component.html',
   styleUrls: ['./best-recepies.component.css'],
+  animations: [
+    trigger('fadeInDown', [
+      state('void', style({ opacity: 0, transform: 'translateY(-50px)' })),
+      transition(':enter, :leave', [animate('0.5s ease-out')]),
+    ]),
+  ],
 })
 export class BestRecepiesComponent {
   constructor(

@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-md bg-body border-bottom py-3">
+<nav
+  class="navbar navbar-expand-md bg-body border-bottom py-3"
+  *ngIf="!isErrorPage"
+>
   <div class="container-fluid ms-5">
     <a class="navbar-brand fw-semibold" routerLink="">Foodie</a>
     <button

@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { Store } from '@ngxs/store';
 import { AuthState } from 'src/store/auth.state';
 import { Auth } from 'src/store/model/auth.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +12,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(
-    private dataService: DataService,
     private store: Store,
-    private router: Router
+    private router: Router,
+    private activeRouter: ActivatedRoute
   ) {}
+
+  isErrorPage: boolean = false;
 
   currentRole!: string;
   currentUser: Auth = {
@@ -26,6 +28,7 @@ export class NavbarComponent {
     access_token: null,
     role: 'guest',
   };
+
   rolesMap: Map<string, string> = new Map([
     ['user', 'Пользователь'],
     ['admin', 'Администратор'],
@@ -42,6 +45,14 @@ export class NavbarComponent {
         this.currentRole = value;
         this.currentUser = this.store.selectSnapshot(AuthState.getAuthObject);
       },
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isErrorPage =
+          this.activeRouter.snapshot.firstChild?.routeConfig?.path === '404' ||
+          this.activeRouter.snapshot.firstChild?.routeConfig?.path === '401';
+      }
     });
   }
 }

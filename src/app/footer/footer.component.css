@@ -1,3 +1,8 @@
 .footer {
   max-height: 10rem;
 }
+
+.banner {
+  background-color: #3a3395;
+  color: white;
+}

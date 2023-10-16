@@ -3,11 +3,24 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { UserReg } from '../interfaces/users-interface';
 import { HttpErrorResponse } from '@angular/common/http';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.css'],
+  animations: [
+    trigger('fadeInDown', [
+      state('void', style({ opacity: 0, transform: 'translateY(-50px)' })),
+      transition(':enter, :leave', [animate('0.2s ease-out')]),
+    ]),
+  ],
 })
 export class RegistrationPageComponent {
   constructor(private dataService: DataService, private router: Router) {}
@@ -27,7 +40,7 @@ export class RegistrationPageComponent {
         },
 
         error: (err: HttpErrorResponse) => {
-          if (err.status === 404) {
+          if (err.status === 400) {
             this.wrongCred = true;
           }
         },
