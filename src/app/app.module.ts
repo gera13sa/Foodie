@@ -21,16 +21,15 @@ import { NgxsModule } from '@ngxs/store';
 import { AuthState } from 'src/store/auth.state';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  NgxsReduxDevtoolsPlugin,
-  NgxsReduxDevtoolsPluginModule,
-} from '@ngxs/devtools-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { FavoritesState } from 'src/store/favorites.state';
 import { RecipeDetailsComponent } from './recipes-page/recipe-details/recipe-details.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AccessForbidenPageComponent } from './error-pages/access-forbiden-page/access-forbiden-page.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
+import { RecipeCatalogComponent } from './recipes-page/recipe-catalog/recipe-catalog.component';
+import { IngredientsState } from 'src/store/recipe.state';
 
 registerLocaleData(localeRu);
 
@@ -51,6 +50,7 @@ registerLocaleData(localeRu);
     AccessForbidenPageComponent,
     PageNotFoundComponent,
     RecipesPageComponent,
+    RecipeCatalogComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,7 @@ registerLocaleData(localeRu);
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxsModule.forRoot([AuthState, FavoritesState]),
+    NgxsModule.forRoot([AuthState, FavoritesState, IngredientsState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ToastrModule.forRoot({

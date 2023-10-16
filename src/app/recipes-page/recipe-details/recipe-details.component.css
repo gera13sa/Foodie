@@ -37,6 +37,11 @@
   cursor: pointer;
 }
 
-.form-check-input {
+.form-check-input,
+.card-title {
   cursor: pointer;
+}
+
+.strikethrough-styling {
+  text-decoration: line-through;
 }

@@ -120,14 +120,25 @@
       <h4 class="mb-4">Что вам пригодится</h4>
 
       <ng-container
-        *ngFor="let ingredient of recipeInfo.additionalInformation.ingredients"
+        *ngFor="
+          let ingredient of recipeInfo.additionalInformation.ingredients;
+          let i = index
+        "
       >
         <input
           class="form-check-input p-2 mt-3 rounded-circle"
           type="checkbox"
-          id="check"
+          [id]="'check' + i"
+          (click)="recipeIngUpdate(ingredient)"
+          [checked]="recipeIngredients.includes(ingredient)"
         />
-        <label class="form-check-label my-auto p-3" for="check">
+        <label
+          class="form-check-label my-auto p-3"
+          [for]="'check' + i"
+          [ngClass]="{
+            'strikethrough-styling': recipeIngredients.includes(ingredient)
+          }"
+        >
           {{ ingredient }}
         </label>
         <hr />
@@ -141,7 +152,9 @@
           <img [src]="recipe.image" class="col-6 fit p-0 m-0 rounded-5" />
           <div class="col-6">
             <div class="row">
-              <h6 [routerLink]="'/recipe/' + recipe.id">{{ recipe.title }}</h6>
+              <h6 class="card-title" [routerLink]="'../' + recipe.id">
+                {{ recipe.title }}
+              </h6>
             </div>
             <div class="row">
               <p class="text-secondary">От {{ recipe.user.name }}</p>
@@ -167,18 +180,29 @@
             <input
               class="form-check-input p-2 rounded-circle m-0 mt-1"
               type="checkbox"
-              value=""
-              id="check"
+              (click)="recipeStepUpdate(step.body)"
+              [id]="'checkSteps' + i"
+              [checked]="recipeIngredients.includes(step.body)"
             />
           </div>
           <div class="col-11 ms-0 ps-0">
             <label
               class="form-check-label ms-0 mt-0 mb-3 pt-0 fw-bold"
-              for="check"
+              [for]="'checkSteps' + i"
+              [ngClass]="{
+                'strikethrough-styling': recipeIngredients.includes(step.body)
+              }"
             >
               <h5>{{ i + 1 }}. {{ step.title }}</h5>
             </label>
-            <p class="text-secondary mb-5">{{ step.body }}</p>
+            <p
+              class="text-secondary mb-5"
+              [ngClass]="{
+                'strikethrough-styling': recipeIngredients.includes(step.body)
+              }"
+            >
+              {{ step.body }}
+            </p>
             <hr />
           </div>
         </div>
@@ -187,7 +211,7 @@
   </div>
 
   <h2 class="text-center my-5">Возможно вам понравятся эти рецепты</h2>
-  <app-try-recipes></app-try-recipes>
+  <app-try-recipes baseRoute="../recipe/"></app-try-recipes>
 
   <h2 class="my-5">Комментарии</h2>
   <ng-container *ngFor="let comment of recipeInfo.comments">

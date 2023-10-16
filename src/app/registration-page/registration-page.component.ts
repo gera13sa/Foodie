@@ -36,6 +36,9 @@ export class RegistrationPageComponent {
       .register(this.userRegisterData.email, this.userRegisterData.password)
       .subscribe({
         next: (value) => {
+          alert(
+            'Регистрация выполнена успешно! Перенаправление на главную страницу'
+          );
           this.router.navigateByUrl('');
         },
 

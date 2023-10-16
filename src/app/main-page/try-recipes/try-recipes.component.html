@@ -15,7 +15,7 @@
           </i>
         </button>
         <img [src]="recipe.image" class="card-img-top rounded-4 mb-3" />
-        <h4 class="card-title" [routerLink]="'recipe/' + recipe.id">
+        <h4 class="card-title" (click)="navigateToRecipe(recipe.id)">
           {{ recipe.title }}
         </h4>
       </div>

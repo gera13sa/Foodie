@@ -7,6 +7,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { AccessForbidenPageComponent } from './error-pages/access-forbiden-page/access-forbiden-page.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
+import { RecipeCatalogComponent } from './recipes-page/recipe-catalog/recipe-catalog.component';
 
 const routes: Routes = [
   {
@@ -26,11 +27,16 @@ const routes: Routes = [
   },
   {
     path: 'recipe',
-    component: RecipesPageComponent,
     children: [
+      {
+        path: '',
+        component: RecipeCatalogComponent,
+        title: 'Каталог рецептов',
+      },
       {
         path: ':id',
         component: RecipeDetailsComponent,
+        title: 'Рецепт',
       },
     ],
   },
@@ -41,10 +47,12 @@ const routes: Routes = [
   {
     path: '404',
     component: PageNotFoundComponent,
+    title: 'Страница не найдена',
   },
   {
     path: '401',
     component: AccessForbidenPageComponent,
+    title: 'Доступ запрещен',
   },
 ];
 

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
+import { filter } from 'rxjs';
 import { DataService } from 'src/app/data.service';
 import { Posts } from 'src/app/interfaces/posts-interface';
 import { FavoritesState } from 'src/store/favorites.state';
@@ -17,8 +19,11 @@ export class TryRecipesComponent {
     private dataService: DataService,
     private router: Router,
     private toastr: ToastrService,
+    private meta: Meta,
     private store: Store
   ) {}
+
+  @Input() baseRoute: string = 'recipe/';
 
   randomRecipes!: Posts[];
   favoriteRecipes!: number[];
@@ -33,7 +38,7 @@ export class TryRecipesComponent {
   }
 
   navigateToRecipe(id: number) {
-    const absolutePath = `/recipe/${id}`;
+    const absolutePath = this.baseRoute + id;
     this.router.navigate([absolutePath]);
   }
 
