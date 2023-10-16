@@ -21,10 +21,12 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NgxsModule } from '@ngxs/store';
 import { AuthState } from 'src/store/auth.state';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NgxsReduxDevtoolsPlugin,
   NgxsReduxDevtoolsPluginModule,
 } from '@ngxs/devtools-plugin';
+import { FavoritesState } from 'src/store/favorites.state';
 
 registerLocaleData(localeRu);
 
@@ -46,8 +48,9 @@ registerLocaleData(localeRu);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    NgxsModule.forRoot([AuthState]),
+    NgxsModule.forRoot([AuthState, FavoritesState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ToastrModule.forRoot({

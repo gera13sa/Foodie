@@ -11,9 +11,15 @@
       <div class="card-body my-auto">
         <button
           class="btn btn-light position-absolute top-1 end-0 me-4 mt-2 rounded-circle"
-          (click)="showNotification()"
+          (click)="favoriteUpdate(recipe.id)"
         >
-          <i class="bi bi-heart"> </i>
+          <i
+            class="bi"
+            [ngClass]="
+              favoriteRecipes.includes(recipe.id) ? 'bi-heart-fill' : 'bi-heart'
+            "
+          >
+          </i>
         </button>
         <img [src]="recipe.image" class="card-img-top rounded-4 mb-3" />
         <h4 class="card-title">{{ recipe.title }}</h4>

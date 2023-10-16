@@ -8,17 +8,24 @@
 
 <div class="row">
   <div class="col-3" *ngFor="let recipe of randomRecipes; let i = index">
-    <div class="card my-4" routerLink="recipe">
+    <div class="card my-4">
       <div class="card-body my-auto">
         <button
           class="btn btn-light position-absolute top-1 end-0 me-4 mt-2 rounded-circle z-2"
-          (click)="showNotification()"
+          (click)="favoriteUpdate(recipe.id)"
         >
-          <i class="bi bi-heart"> </i>
+          <i
+            class="bi"
+            [ngClass]="
+              favoriteRecipes.includes(recipe.id) ? 'bi-heart-fill' : 'bi-heart'
+            "
+          >
+          </i>
         </button>
         <img [src]="recipe.image" class="card-img-top rounded-4 mb-3" />
-        <h4 class="card-title">{{ recipe.title }}</h4>
-        <a routerLink="recipe/{{ recipe.id }}" class="stretched-link"></a>
+        <h4 class="card-title">
+          {{ recipe.title }}
+        </h4>
       </div>
       <div class="card-footer row-col-3 bg-transparent border-0 px-3 pb-4">
         <span class="fw-light ms-2 me-4"

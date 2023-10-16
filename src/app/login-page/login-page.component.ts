@@ -26,6 +26,7 @@ export class LoginPageComponent {
 
   authorizeUser() {
     console.log(this.userAuthData);
+
     this.dataService
       .auth(this.userAuthData.username, this.userAuthData.password)
       .subscribe({
@@ -40,12 +41,15 @@ export class LoginPageComponent {
               isAuth: true,
             })
           );
+
           this.dataService.role = this.store.selectSnapshot(
             AuthState.getAuthRole
           );
+
           this.wrongCred = false;
           this.router.navigateByUrl('');
         },
+
         error: (err: HttpErrorResponse) => {
           if (err.status === 404) {
             this.wrongCred = true;
