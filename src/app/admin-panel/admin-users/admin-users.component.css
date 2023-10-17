@@ -1,0 +1,18 @@
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.text-active {
+  color: green;
+}
+
+.scale {
+  object-fit: contain;
+  width: 4rem;
+  height: 4rem;
+}
+
+.mx-8 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}

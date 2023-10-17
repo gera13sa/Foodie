@@ -1,0 +1,12 @@
+.mt-10 {
+  margin-top: 10rem;
+}
+.active {
+  font-weight: bold;
+  /* Другие стили активной вкладки */
+}
+
+.mx-8 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}

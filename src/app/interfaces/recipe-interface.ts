@@ -1,11 +1,11 @@
-import { UserInfo } from './users-interface';
+import { UserLogInfo } from './users-interface';
 
 export interface Recipe {
   id: number;
   title: string;
   body: string;
   tags: string;
-  user: UserInfo;
+  user: UserLogInfo;
   image: string;
   timeCooking: number;
   foodValue: FoodValue;

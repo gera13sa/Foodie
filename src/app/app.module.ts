@@ -30,6 +30,9 @@ import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-fou
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RecipeCatalogComponent } from './recipes-page/recipe-catalog/recipe-catalog.component';
 import { IngredientsState } from 'src/store/recipe.state';
+import { AdminUsersComponent } from './admin-panel/admin-users/admin-users.component';
+import { AdminPostsComponent } from './admin-panel/admin-posts/admin-posts.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 registerLocaleData(localeRu);
 
@@ -51,6 +54,9 @@ registerLocaleData(localeRu);
     PageNotFoundComponent,
     RecipesPageComponent,
     RecipeCatalogComponent,
+    AdminUsersComponent,
+    AdminPostsComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,10 @@ import { AccessForbidenPageComponent } from './error-pages/access-forbiden-page/
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RecipeCatalogComponent } from './recipes-page/recipe-catalog/recipe-catalog.component';
+import { AdminUsersComponent } from './admin-panel/admin-users/admin-users.component';
+import { AdminPostsComponent } from './admin-panel/admin-posts/admin-posts.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminGuardGuard } from './admin-panel/admin-guard.guard';
 
 const routes: Routes = [
   {
@@ -41,8 +45,19 @@ const routes: Routes = [
     ],
   },
   {
-    path: '**',
-    redirectTo: '404',
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AdminGuardGuard],
+    children: [
+      {
+        path: 'users',
+        component: AdminUsersComponent,
+      },
+      {
+        path: 'posts',
+        component: AdminPostsComponent,
+      },
+    ],
   },
   {
     path: '404',
@@ -53,6 +68,11 @@ const routes: Routes = [
     path: '401',
     component: AccessForbidenPageComponent,
     title: 'Доступ запрещен',
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '404',
   },
 ];
 

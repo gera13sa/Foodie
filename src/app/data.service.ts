@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Posts } from './interfaces/posts-interface';
 import { Auth } from 'src/store/model/auth.model';
 import { Recipe } from './interfaces/recipe-interface';
+import { Users } from './interfaces/users-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -42,13 +43,23 @@ export class DataService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     const body = {
       email: userEmail,
       password: userPassword,
     };
 
     return this.httpClient.post<Auth>(`${this.apiUrl}/users/register`, body, {
+      headers: headers,
+    });
+  }
+
+  getAllUsers(token: string): Observable<Users[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.httpClient.get<Users[]>(this.apiUrl + '/users', {
       headers: headers,
     });
   }
