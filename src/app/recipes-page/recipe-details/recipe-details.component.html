@@ -3,7 +3,7 @@
   <div class="row mt-5 my-auto">
     <img
       [src]="recipeInfo.user.image"
-      class="col rounded-circle col-lg-1 p-lg-4 p-sm-0 col-sm-2 col-2"
+      class="col rounded-circle col-lg-1 p-lg-4 p-sm-0 col-sm-1 col-1 p-0"
     />
 
     <div
@@ -16,12 +16,12 @@
       }}</span>
     </div>
 
-    <div class="col-lg-3 col-sm-12 ms-3 mt-sm-3 my-lg-auto">
+    <div class="col-lg-3 col-sm-12 col-12 ms-0 ms-md-3 mt-sm-3 my-lg-auto">
       <div class="row">
-        <div class="col col-1 p-0 my-auto">
+        <div class="col col-2 col-md-1 p-0 ms-3 my-auto">
           <img src="../../../assets/Timer.svg" class="my-auto" />
         </div>
-        <div class="col col-sm-9 col-6 my-auto border-1 border-end pe-0">
+        <div class="col col-sm-10 col-6 my-auto border-1 border-end pe-0">
           <p class="mb-0 my-auto fw-light">ВРЕМЯ ПРИГОТОВЛЕНИЯ</p>
           <p class="text-secondary fw-light mt-0 my-auto">
             {{ recipeInfo.timeCooking }} минут
@@ -29,9 +29,18 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-6 col-12 ms-1 my-lg-auto mb-sm-5 mb-5">
-      <img src="../../assets/ForkKnife.svg" />
-      <span class="ms-lg-3 ms-sm-4 ms-3 fw-light">{{ recipeInfo.tags }}</span>
+
+    <div
+      class="col-lg-3 col-sm-12 col-12 ms-0 ms-md-3 mt-sm-3 mb-sm-5 mb-5 my-lg-auto"
+    >
+      <div class="row">
+        <div class="col col-2 col-md-1 p-0 ms-3 my-auto">
+          <img src="../../../assets/ForkKnife.svg" class="my-auto" />
+        </div>
+        <div class="col col-sm-10 col-6 my-auto pe-0">
+          <p class="mb-0 my-auto fw-light">{{ recipeInfo.tags }}</p>
+        </div>
+      </div>
     </div>
 
     <div
@@ -57,7 +66,7 @@
   <div class="row">
     <img
       [src]="recipeInfo.image"
-      class="scale col-lg-7 col-sm-12 rounded-5 my-5 mx-1"
+      class="scale col-lg-7 col-sm-12 rounded-5 my-5 mt-lg-0 mx-1"
     />
     <div class="col-lg-4 col-sm-12 my-5 mt-sm-0">
       <div class="card bg-primary rounded-5 border-0 p-2 h-100">
