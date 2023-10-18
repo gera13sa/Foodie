@@ -1,9 +1,14 @@
 <div class="container container-sm mt-10">
   <h1 class="fw-bolder mb-4">{{ recipeInfo.title }}</h1>
   <div class="row mt-5 my-auto">
-    <img [src]="recipeInfo.user.image" class="rounded-circle col-1 p-4 m-0" />
+    <img
+      [src]="recipeInfo.user.image"
+      class="col rounded-circle col-lg-1 p-lg-4 p-sm-0 col-sm-2 col-2"
+    />
 
-    <div class="col-2 ms-0 me-0 my-auto border-1 border-end">
+    <div
+      class="col-lg-2 col-sm-10 col-10 ms-0 me-0 my-auto border-1 border-end"
+    >
       <span class="fw-bold">{{ recipeInfo.user.name }}</span
       ><br />
       <span class="text-secondary">{{
@@ -11,12 +16,12 @@
       }}</span>
     </div>
 
-    <div class="col-3 ms-3 my-auto">
+    <div class="col-lg-3 col-sm-12 ms-3 mt-sm-3 my-lg-auto">
       <div class="row">
         <div class="col col-1 p-0 my-auto">
           <img src="../../../assets/Timer.svg" class="my-auto" />
         </div>
-        <div class="col my-auto border-1 border-end pe-0">
+        <div class="col col-sm-9 col-6 my-auto border-1 border-end pe-0">
           <p class="mb-0 my-auto fw-light">ВРЕМЯ ПРИГОТОВЛЕНИЯ</p>
           <p class="text-secondary fw-light mt-0 my-auto">
             {{ recipeInfo.timeCooking }} минут
@@ -24,12 +29,14 @@
         </div>
       </div>
     </div>
-    <div class="col-3 ms-1 my-auto">
+    <div class="col-lg-3 col-sm-6 col-12 ms-1 my-lg-auto mb-sm-5 mb-5">
       <img src="../../assets/ForkKnife.svg" />
-      <span class="ms-3">{{ recipeInfo.tags }}</span>
+      <span class="ms-lg-3 ms-sm-4 ms-3 fw-light">{{ recipeInfo.tags }}</span>
     </div>
 
-    <div class="col-1 p-0 m-0 text-center">
+    <div
+      class="col-lg-1 col-sm-2 col-2 p-0 m-0 ms-3 ms-lg-0 text-lg-center text-sm-start"
+    >
       <a
         ><i
           class="bi bi-printer rounded-circle p-4"
@@ -38,7 +45,7 @@
       ></a>
     </div>
 
-    <div class="col-1 p-0 m-0 text-center">
+    <div class="col-lg-1 col-sm-2 col-2 p-0 m-0 text-lg-center text-sm-start">
       <i
         class="bi bi-box-arrow-up rounded-circle p-4"
         data-bs-toggle="modal"
@@ -48,8 +55,11 @@
   </div>
 
   <div class="row">
-    <img [src]="recipeInfo.image" class="scale col-7 rounded-5 my-5 mx-1" />
-    <div class="col-4 my-5">
+    <img
+      [src]="recipeInfo.image"
+      class="scale col-lg-7 col-sm-12 rounded-5 my-5 mx-1"
+    />
+    <div class="col-lg-4 col-sm-12 my-5 mt-sm-0">
       <div class="card bg-primary rounded-5 border-0 p-2 h-100">
         <div class="card-body">
           <h3 class="card-title mb-3">Пищевая ценность</h3>
@@ -114,7 +124,7 @@
   </div>
 
   <div class="row">
-    <div class="col-7 pe-5">
+    <div class="col-lg-7 col-sm-12 pe-5">
       <h3 class="my-5 mb-5">Ингридиенты</h3>
       <h4 class="mb-4">Что вам пригодится</h4>
 
@@ -144,10 +154,13 @@
       </ng-container>
     </div>
 
-    <div class="col-3 ps-3">
+    <div class="col-lg-3 col-sm-12 ps-3">
       <h3 class="mb-5 mt-5">Прочие рецепты</h3>
       <div class="row mb-3 recipecard" *ngFor="let recipe of randomRecipes">
-        <img [src]="recipe.image" class="col-5 fit p-0 m-0 rounded-5" />
+        <img
+          [src]="recipe.image"
+          class="col-lg-5 col-sm-12 fit p-0 m-0 rounded-5"
+        />
         <div class="d-flex flex-column col-6">
           <div class="row">
             <h6 class="card-title" (click)="redirectTo('/recipe/' + recipe.id)">
@@ -165,7 +178,7 @@
   <div class="row">
     <h3 class="my-5">Шаги приготовления</h3>
 
-    <div class="col-7 pe-5">
+    <div class="col-lg-7 col-sm-12 pe-5">
       <ng-container
         *ngFor="
           let step of recipeInfo.additionalInformation.details;

@@ -1,7 +1,7 @@
 <div class="container container-sm mt-10">
   <h1 class="header fw-bold mt-5">Каталог рецептов</h1>
   <div class="row">
-    <i class="bi bi-search col-auto me-2 my-auto p-0"></i>
+    <i class="bi bi-search col-auto me-2 ms-2 my-auto p-0"></i>
     <input
       type="text"
       class="form-control w-50 col-2"
@@ -17,7 +17,7 @@
     <h4 class="my-auto text-center">Рецепт с таким названием не найден!</h4>
   </div>
   <div class="row">
-    <div class="col-4" *ngFor="let post of filteredPosts; let i = index">
+    <div class="col-lg-4" *ngFor="let post of filteredPosts; let i = index">
       <div class="card my-4" @fadeInDown>
         <div class="card-body my-auto">
           <button

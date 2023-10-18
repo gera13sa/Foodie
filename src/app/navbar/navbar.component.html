@@ -44,7 +44,7 @@
           routerLink="create-recipe"
         ></i>
         <a
-          class="nav-link me-5 ms-0 z-0"
+          class="nav-link me-0 ms-0 z-0"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -54,7 +54,7 @@
               [src]="this.currentUser.image"
               class="col-2 scale py-1 ms-3 me-0 my-auto rounded-circle"
             />
-            <div class="col-8 ms-0 me-0 pe-0">
+            <div class="col-lg-6 col-sm-6 col-6 ms-0 me-0 pe-0">
               <span>{{ this.currentUser.fullname }}</span
               ><br />
               <span class="text-secondary">{{
@@ -79,8 +79,9 @@
             <a class="dropdown-item fw-light" routerLink="admin/users"
               >Администрирование</a
             >
+            <hr class="dropdown-divider" />
           </li>
-          <li><hr class="dropdown-divider" /></li>
+
           <li>
             <a class="dropdown-item text-danger fw-light" (click)="logOut()"
               >Выход</a
@@ -89,9 +90,13 @@
         </ul>
       </div>
       <ng-template #userGuest>
-        <button class="btn btn-primary me-5 px-4 fw-light" routerLink="auth">
-          Войти
-        </button>
+        <div
+          class="row col-lg-auto col-sm-11 col-11 col-md-auto me-lg-5 mt-sm-0"
+        >
+          <button class="btn btn-primary px-4 fw-light" routerLink="auth">
+            Войти
+          </button>
+        </div>
       </ng-template>
     </div>
   </div>

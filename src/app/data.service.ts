@@ -88,4 +88,13 @@ export class DataService {
       headers: headers,
     });
   }
+
+  deletePost(token: string, id: number) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.httpClient.delete(this.apiUrl + '/posts/' + id, {
+      headers: headers,
+    });
+  }
 }

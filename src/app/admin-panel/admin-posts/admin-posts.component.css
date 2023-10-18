@@ -6,10 +6,6 @@ td {
   padding: 1.5rem;
 }
 
-.mx-8 {
-  margin: 2rem 8rem;
-}
-
 table > tbody > tr:nth-child(even) > td,
 table > thead > tr > th {
   background-color: #f9fafb !important;
