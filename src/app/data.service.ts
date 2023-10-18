@@ -29,7 +29,6 @@ export class DataService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     const body = {
       username: userLogin,
       password: userPassword,
@@ -93,6 +92,7 @@ export class DataService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
+
     return this.httpClient.delete(this.apiUrl + '/posts/' + id, {
       headers: headers,
     });
