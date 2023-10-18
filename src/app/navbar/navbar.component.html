@@ -36,25 +36,25 @@
           this.currentRole === 'user' || this.currentRole === 'admin';
           else userGuest
         "
-        class="nav-item dropdown"
+        class="nav-item dropdown d-flex justify-content-center align-items-center"
       >
+        <i
+          class="col-1 bi bi-pencil-square z-1 mx-0 my-auto p-2"
+          style="font-size: 1.5rem"
+          routerLink="create-recipe"
+        ></i>
         <a
-          class="nav-link w-50 me-5 z-0"
+          class="nav-link me-5 ms-0 z-0"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <div class="row justify-content-center align-items-center">
-            <i
-              class="col-2 bi bi-pencil-square z-1 my-auto p-2"
-              style="font-size: 1.5rem"
-              routerLink="create-recipe"
-            ></i>
+          <div class="row justify-content-start align-items-center">
             <img
               [src]="this.currentUser.image"
-              class="col-3 scale py-1 me-0 my-auto rounded-circle"
+              class="col-2 scale py-1 ms-3 me-0 my-auto rounded-circle"
             />
-            <div class="col-auto me-0 pe-0">
+            <div class="col-8 ms-0 me-0 pe-0">
               <span>{{ this.currentUser.fullname }}</span
               ><br />
               <span class="text-secondary">{{
@@ -74,6 +74,7 @@
           <li>
             <a class="dropdown-item fw-light">Настройки аккаунта</a>
           </li>
+          <li><hr class="dropdown-divider" /></li>
           <li *ngIf="this.currentRole === 'admin'">
             <a class="dropdown-item fw-light" routerLink="admin/users"
               >Администрирование</a

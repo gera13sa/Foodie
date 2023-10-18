@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
 import { Store } from '@ngxs/store';
 import { AuthState } from 'src/store/auth.state';
 import { Auth } from 'src/store/model/auth.model';
@@ -11,6 +10,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { StateResetAll } from 'ngxs-reset-plugin';
 
 @Component({
   selector: 'app-navbar',
@@ -49,11 +49,8 @@ export class NavbarComponent {
   ]);
 
   logOut() {
-    this.store.reset(AuthState);
+    this.store.dispatch(new StateResetAll());
     this.router.navigate(['auth']);
-  }
-  stop(event: any) {
-    event.stopPropagation();
   }
 
   ngOnInit() {

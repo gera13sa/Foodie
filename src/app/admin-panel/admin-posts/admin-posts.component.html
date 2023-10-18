@@ -20,7 +20,9 @@
         <td class="w-auto" [routerLink]="'./' + post.id">
           <i class="bi bi-pencil m-0" style="color: #ffc700"></i>
         </td>
-        <td><i class="bi bi-trash m-0" style="color: #f24e1e"></i></td>
+        <td (click)="deleteRecipe(post.id)">
+          <i class="bi bi-trash m-0" style="color: #f24e1e"></i>
+        </td>
       </tr>
     </tbody>
   </table>

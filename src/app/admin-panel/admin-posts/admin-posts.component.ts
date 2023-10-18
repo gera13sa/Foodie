@@ -27,6 +27,8 @@ export class AdminPostsComponent {
 
   postsInfo!: Posts[];
 
+  deleteRecipe(id: number) {}
+
   ngOnInit() {
     this.dataService.getAllPosts().subscribe({
       next: (post) => {

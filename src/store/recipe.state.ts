@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { FavoriteUpdate } from './model/favorites.model';
 import { RecipeIngUpdate, RecipeStepsUpdate } from './model/recipe.model';
 
 @State<string[]>({

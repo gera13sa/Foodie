@@ -36,6 +36,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-page.component';
 import { EditRecipeComponent } from './admin-panel/admin-posts/edit-recipe/edit-recipe.component';
 import { AdminNavbarComponent } from './admin-panel/admin-navbar/admin-navbar.component';
+import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
 
 registerLocaleData(localeRu);
 
@@ -73,6 +74,7 @@ registerLocaleData(localeRu);
     NgxsModule.forRoot([AuthState, FavoritesState, IngredientsState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsResetPluginModule.forRoot(),
     ToastrModule.forRoot({
       enableHtml: true,
       timeOut: 5000,

@@ -1,3 +1,12 @@
 .scale {
   object-fit: cover;
 }
+
+.bi.bi-pencil-square {
+  transition: transform 0.3s ease-in;
+}
+
+.bi.bi-pencil-square:hover {
+  color: grey;
+  transform: scale(1.1);
+}
