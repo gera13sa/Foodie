@@ -4,6 +4,7 @@ export interface Auth {
   role: 'user' | 'admin' | 'guest';
   id: number | null;
   fullname: string | null;
+  image: string | null;
   isAuth: boolean;
 }
 

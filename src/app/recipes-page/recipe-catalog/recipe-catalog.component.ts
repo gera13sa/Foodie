@@ -60,10 +60,17 @@ export class RecipeCatalogComponent {
       );
   }
 
+  search() {
+    this.filteredPosts = this.postsInfo.filter((post) =>
+      post.title.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
   ngOnInit() {
     this.dataService.getAllPosts().subscribe({
-      next: (post) => {
-        this.postsInfo = post;
+      next: (posts: Posts[]) => {
+        this.postsInfo = posts;
+        this.filteredPosts = posts;
       },
     });
 

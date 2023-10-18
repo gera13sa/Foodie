@@ -17,3 +17,7 @@
 .card:hover {
   transform: scale(1.05);
 }
+
+.alert-primary {
+  background-color: #e7fafe;
+}

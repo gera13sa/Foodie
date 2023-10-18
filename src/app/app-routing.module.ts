@@ -12,6 +12,9 @@ import { AdminUsersComponent } from './admin-panel/admin-users/admin-users.compo
 import { AdminPostsComponent } from './admin-panel/admin-posts/admin-posts.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminGuardGuard } from './admin-panel/admin-guard.guard';
+import { CreateRecipePageComponent } from './create-recipe-page/create-recipe-page.component';
+import { CreateRecipeGuard } from './create-recipe-page/create-recipe.guard';
+import { EditRecipeComponent } from './admin-panel/admin-posts/edit-recipe/edit-recipe.component';
 
 const routes: Routes = [
   {
@@ -45,6 +48,12 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'create-recipe',
+    component: CreateRecipePageComponent,
+    canActivate: [CreateRecipeGuard],
+    title: 'Создание рецепта',
+  },
+  {
     path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AdminGuardGuard],
@@ -52,10 +61,17 @@ const routes: Routes = [
       {
         path: 'users',
         component: AdminUsersComponent,
+        title: 'Управление пользователями',
       },
       {
-        path: 'posts',
+        path: 'recipes',
         component: AdminPostsComponent,
+        title: 'Управление рецептами',
+      },
+      {
+        path: 'recipes/:id',
+        component: EditRecipeComponent,
+        title: 'Изменение рецепта',
       },
     ],
   },

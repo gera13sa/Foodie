@@ -12,6 +12,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
     id: null,
     username: null,
     access_token: null,
+    image: null,
   },
 })
 @Injectable()
@@ -40,6 +41,7 @@ export class AuthState {
       fullname: action.payload.fullname,
       id: action.payload.id,
       role: action.payload.role,
+      image: action.payload.image,
     });
   }
 }

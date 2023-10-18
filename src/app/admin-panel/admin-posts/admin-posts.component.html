@@ -1,1 +1,27 @@
-<h1>w12</h1>
+<app-admin-navbar></app-admin-navbar>
+<div class="mx-8 fullbody">
+  <table @fadeInDown>
+    <thead>
+      <tr>
+        <th class="fw-light ps-2">Название рецепта</th>
+        <th class="fw-light ps-2">Описание рецепта</th>
+        <th class="fw-light ps-2">ID рецепта</th>
+        <th class="fw-light ps-2">Категория</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of postsInfo">
+        <td class="fw-normal">{{ post.title }}</td>
+        <td class="fw-light">{{ post.body }}</td>
+        <td class="text-center fw-light">{{ post.id }}</td>
+        <td class="fw-light">{{ post.tags }}</td>
+        <td class="w-auto" [routerLink]="'./' + post.id">
+          <i class="bi bi-pencil m-0" style="color: #ffc700"></i>
+        </td>
+        <td><i class="bi bi-trash m-0" style="color: #f24e1e"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

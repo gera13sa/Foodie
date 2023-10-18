@@ -50,6 +50,7 @@ export class LoginPageComponent {
               fullname: value.fullname,
               role: value.role,
               isAuth: true,
+              image: value.image,
             })
           );
 

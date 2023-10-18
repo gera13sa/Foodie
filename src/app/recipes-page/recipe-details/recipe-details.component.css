@@ -45,3 +45,11 @@
 .strikethrough-styling {
   text-decoration: line-through;
 }
+
+.recipecard {
+  transition: all 0.5s;
+}
+
+.recipecard:hover {
+  transform: scale(1.1);
+}

@@ -100,10 +100,7 @@
           type="submit"
           class="btn btn-primary w-100 mt-2 mb-3"
           [disabled]="
-            userLogin.invalid ||
-            userPassword.invalid ||
-            userLogin.untouched ||
-            userPassword.untouched
+            userLogin.invalid || userPassword.invalid || userLogin.untouched
           "
         >
           Войти

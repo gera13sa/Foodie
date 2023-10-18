@@ -5,6 +5,7 @@ import { Posts } from './interfaces/posts-interface';
 import { Auth } from 'src/store/model/auth.model';
 import { Recipe } from './interfaces/recipe-interface';
 import { Users } from './interfaces/users-interface';
+import { CreateRecipe } from './interfaces/create-recipe-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -60,6 +61,30 @@ export class DataService {
     });
 
     return this.httpClient.get<Users[]>(this.apiUrl + '/users', {
+      headers: headers,
+    });
+  }
+
+  sendPost(token: string, post: CreateRecipe) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    const body = post;
+
+    return this.httpClient.post(this.apiUrl + '/posts', body, {
+      headers: headers,
+    });
+  }
+
+  patchPost(token: string, id: number, post: CreateRecipe) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    const body = post;
+
+    return this.httpClient.patch(this.apiUrl + '/posts/' + id, body, {
       headers: headers,
     });
   }

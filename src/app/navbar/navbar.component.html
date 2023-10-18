@@ -15,9 +15,13 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <div class="container container-fluid">
-        <ul class="navbar-nav justify-content-center">
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ 'col-12': currentUser.isAuth }"
+      id="navbarNavDropdown"
+    >
+      <div class="container container-fluid ps-5">
+        <ul class="navbar-nav justify-content-center ps-5">
           <li class="nav-item">
             <a class="nav-link" routerLink="">Главная</a>
           </li>
@@ -32,21 +36,35 @@
           this.currentRole === 'user' || this.currentRole === 'admin';
           else userGuest
         "
-        class="nav-item dropdown me-5"
+        class="nav-item dropdown"
       >
         <a
-          class="nav-link"
+          class="nav-link w-50 me-5 z-0"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <span>{{ this.currentUser.fullname }}</span
-          ><br />
-          <span class="text-secondary">{{
-            this.rolesMap.get(this.currentRole)
-          }}</span>
+          <div class="row justify-content-center align-items-center">
+            <i
+              class="col-2 bi bi-pencil-square z-1 my-auto p-2"
+              style="font-size: 1.5rem"
+              routerLink="create-recipe"
+            ></i>
+            <img
+              [src]="this.currentUser.image"
+              class="col-3 scale py-1 me-0 my-auto rounded-circle"
+            />
+            <div class="col-auto me-0 pe-0">
+              <span>{{ this.currentUser.fullname }}</span
+              ><br />
+              <span class="text-secondary">{{
+                this.rolesMap.get(this.currentRole)
+              }}</span>
+            </div>
+          </div>
         </a>
-        <ul class="dropdown-menu dropdown-menu-md-end">
+
+        <ul class="dropdown-menu dropdown-menu-md-center" @fadeInDown>
           <li>
             <span class="dropdown-item-text fw-light"
               >Вы вошли как {{ this.currentUser.username }}</span

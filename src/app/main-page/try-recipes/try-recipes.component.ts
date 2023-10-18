@@ -23,8 +23,6 @@ export class TryRecipesComponent {
     private store: Store
   ) {}
 
-  @Input() baseRoute: string = 'recipe/';
-
   randomRecipes!: Posts[];
   favoriteRecipes!: number[];
 
@@ -37,9 +35,10 @@ export class TryRecipesComponent {
       );
   }
 
-  navigateToRecipe(id: number) {
-    const absolutePath = this.baseRoute + id;
-    this.router.navigate([absolutePath]);
+  redirectTo(url: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([url]);
+    });
   }
 
   ngOnInit() {
