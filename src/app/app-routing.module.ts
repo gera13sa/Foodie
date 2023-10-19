@@ -6,7 +6,6 @@ import { RecipeDetailsComponent } from './recipes-page/recipe-details/recipe-det
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AccessForbidenPageComponent } from './error-pages/access-forbiden-page/access-forbiden-page.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
-import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { RecipeCatalogComponent } from './recipes-page/recipe-catalog/recipe-catalog.component';
 import { AdminUsersComponent } from './admin-panel/admin-users/admin-users.component';
 import { AdminPostsComponent } from './admin-panel/admin-posts/admin-posts.component';
